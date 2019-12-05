@@ -25,4 +25,4 @@
 (print lst)
 (display "Choose the list element to be removed:")
 (define val(read))
-(print (remove val lst))
+(print (delete-loop lst val))
