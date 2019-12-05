@@ -12,11 +12,16 @@
 (define (delete-n l n)
   (if (= n 0) 
       (cdr l)
-      (append (list (car l)) (delete-n (cdr l) (- n 1)))))
+      (append (list (car l)) (delete-n (cdr l) (- n 1))))      
+)
 
 (define (delete-loop l val)
-  (delete-n l val))
-
+  (let loop ((val val))
+    (unless (zero? val)
+      (print (delete-n l val))
+      (loop (+ val val)))
+    )
+)
 (display "Define the length of the list:")
 (define val(read))
 (display "Add elements to the list:")
@@ -24,5 +29,6 @@
 (append-list read val)
 (print lst)
 (display "Choose the list element to be removed:")
-(define val(read))
-(print (delete-loop lst val))
+(define val2(read))
+(delete-loop lst val2)
+
