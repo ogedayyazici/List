@@ -1,4 +1,4 @@
-(define lst '())
+(define lst '(1 2 3 4 5 6 7 8 9 10))
 
 (define (append-list proc n)
   (let loop ((n n))
@@ -9,19 +9,13 @@
     )
 )
 
-(define (remove x ls)
-    (let loop((ls0 ls) (ls1 ()))
-        (if (null? ls0) 
-	        (reverse ls1)
-	        (loop
-	          (cdr ls0)
-                (if (eqv? x (car ls0))
-                    ls1
-                (cons (car ls0) ls1))
-            )
-        )
-    )
-)
+(define (delete-n l n)
+  (if (= n 0) 
+      (cdr l)
+      (append (list (car l)) (delete-n (cdr l) (- n 1)))))
+
+(define (delete-loop l val)
+  (delete-n l val))
 
 (display "Define the length of the list:")
 (define val(read))
